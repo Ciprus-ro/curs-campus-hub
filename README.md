@@ -12,8 +12,10 @@ curs-campus-hub/
 │   └── sesiunea-13.js          exercițiile sesiunii, de copiat în proiectul tău
 ├── 14-js-functii/
 │   └── sesiunea-14.js          exercițiile sesiunii 14, de copiat în proiectul tău
-└── 15-js-obiecte/
-    └── sesiunea-15.js          exercițiile sesiunii 15, de copiat în proiectul tău
+├── 15-js-obiecte/
+│   └── sesiunea-15.js          exercițiile sesiunii 15, de copiat în proiectul tău
+└── 16-js-array/
+    └── sesiunea-16.js          exercițiile sesiunii 16, de copiat în proiectul tău
 ```
 
 Fiecare sesiune are un folder, cu fișierele ei direct în el. Copiezi fișierele în **proiectul tău** (`campus-hub`), de exemplu `sesiunea-13.js` în `campus-hub/js/`.
@@ -41,6 +43,14 @@ Fiecare sesiune are un folder, cu fișierele ei direct în el. Copiezi fișierel
 3. Copiază `15-js-obiecte/sesiunea-15.js` în `campus-hub/js/`.
 4. Deschide fișierul în VS Code, rezolvă exercițiile și rulează cu **Ctrl+Alt+N**.
 5. `git add .`, `git commit -m "Sesiunea 15: obiecte"`, `git push origin sesiunea-15`, apoi Pull Request în `main`.
+
+## Sesiunea 16 pe scurt
+
+1. În `curs-campus-hub`: `git pull`.
+2. În `campus-hub`: `git checkout main`, `git pull`, `git checkout -b sesiunea-16`.
+3. Copiază `16-js-array/sesiunea-16.js` în `campus-hub/js/`.
+4. Deschide fișierul în VS Code, rezolvă exercițiile și rulează cu **Ctrl+Alt+N**.
+5. `git add .`, `git commit -m "Sesiunea 16: array"`, `git push origin sesiunea-16`, apoi Pull Request în `main`.
 
 ## Tag-uri: „pozele” repo-ului
 
