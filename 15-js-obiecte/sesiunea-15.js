@@ -25,6 +25,10 @@
      constant variable”. */
 
 console.log("--- Exercițiul 1 ---");
+const titluEveniment = "Hackathon Campus Hub";
+let locuriRamase = 20;
+locuriRamase = locuriRamase - 1;
+console.log(titluEveniment + ": " + locuriRamase + " locuri");
 
 
 /* ===== Exercițiul 2 · SINGUR · 3 min · Schimbi un const: ce se întâmplă? =====
@@ -44,6 +48,9 @@ console.log("--- Exercițiul 1 ---");
      sala rămâne A2. */
 
 console.log("--- Exercițiul 2 ---");
+let salaCurs = "A2";
+salaCurs = "B1";
+console.log(salaCurs);
 
 
 /* ===== Exercițiul 3 · GHIDAT · 5 min · Variabila din interiorul if =====
@@ -63,14 +70,15 @@ console.log("--- Exercițiul 2 ---");
      dispare la }. */
 
 console.log("--- Exercițiul 3 ---");
-// function pretFinal(esteStudent) {
-//   const pret = 100;
-//   if (esteStudent) {
-//     let discount = 10;
-//   }
-//   return pret - discount;
-// }
-// console.log("Preț final: " + pretFinal(true));
+function pretFinal(esteStudent) {
+  const pret = 100;
+  let discount = 0;
+  if (esteStudent) {
+    discount = 10;
+  }
+  return pret - discount;
+}
+console.log("Preț final: " + pretFinal(true));
 
 
 /* ===== Exercițiul 4 · SINGUR · 2 min · Repară: variabila din if =====
@@ -90,15 +98,16 @@ console.log("--- Exercițiul 3 ---");
      }. */
 
 console.log("--- Exercițiul 4 ---");
-// function mesajLocuri(locuri) {
-//   if (locuri > 0) {
-//     const mesaj = "Locuri libere";
-//   } else {
-//     const mesaj = "Plin";
-//   }
-//   return mesaj;
-// }
-// console.log(mesajLocuri(5));
+function mesajLocuri(locuri) {
+  let mesaj;
+  if (locuri > 0) {
+    mesaj = "Locuri libere";
+  } else {
+    mesaj = "Plin";
+  }
+  return mesaj;
+}
+console.log(mesajLocuri(5));
 
 
 /* ===== Exercițiul 5 · GHIDAT · 5 min · Primul obiect: evenimentul =====
@@ -119,6 +128,10 @@ console.log("--- Exercițiul 4 ---");
      perechi: JavaScript dă SyntaxError. */
 
 console.log("--- Exercițiul 5 ---");
+const eveniment1 = { nume: "Hackathon", locuri: 20, pret: 90 };
+console.log(eveniment1.nume);
+eveniment1.locuri = eveniment1.locuri - 1;
+console.log(eveniment1.locuri);
 
 
 /* ===== Exercițiul 6 · SINGUR · 3 min · Citești, schimbi, adaugi, ștergi =====
@@ -143,6 +156,12 @@ console.log("--- Exercițiul 5 ---");
 
 console.log("--- Exercițiul 6 ---");
 const eveniment2 = { nume: "Hackathon", locuri: 20, pret: 90 };
+eveniment2.locuri = eveniment2.locuri - 1;
+eveniment2.sala = "A2";
+delete eveniment2.pret;
+console.log(eveniment2.locuri);
+console.log(eveniment2.sala);
+console.log(eveniment2.pret);
 
 
 /* ===== Exercițiul 7 · GHIDAT · 5 min · Există cheia? =====
@@ -163,6 +182,9 @@ const eveniment2 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
 console.log("--- Exercițiul 7 ---");
 const eveniment3 = { nume: "Hackathon", locuri: 20, pret: 90 };
+console.log("sala" in eveniment3);
+eveniment3.sala = "A2";
+console.log("sala" in eveniment3);
 
 
 /* ===== Exercițiul 8 · SINGUR · 1.5 min · Are sau nu are cheia? =====
@@ -184,6 +206,11 @@ const eveniment3 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
 console.log("--- Exercițiul 8 ---");
 const eveniment4 = { nume: "Hackathon", locuri: 20, pret: 90 };
+if ("sala" in eveniment4) {
+  console.log("Are sala");
+} else {
+  console.log("Nu are sala");
+}
 
 
 /* ===== Exercițiul 9 · GHIDAT · 5 min · Toate cheile obiectului =====
@@ -207,6 +234,9 @@ const eveniment4 = { nume: "Hackathon", locuri: 20, pret: 90 };
 
 console.log("--- Exercițiul 9 ---");
 const eveniment5 = { nume: "Hackathon", locuri: 20, pret: 90 };
+for (const cheie in eveniment5) {
+  console.log(cheie + ": " + eveniment5[cheie]);
+}
 
 
 /* ===== Exercițiul 10 · SINGUR · 5 min · Funcția care judecă obiectul =====
@@ -231,6 +261,23 @@ const eveniment5 = { nume: "Hackathon", locuri: 20, pret: 90 };
      apare cu sala, nu „plin”. Ordinea if-urilor contează. */
 
 console.log("--- Exercițiul 10 ---");
+const hackathon = { nume: "Hackathon", locuri: 20, sala: "A2" };
+const workshop = { nume: "Workshop CSS", locuri: 0, sala: "B1" };
+const meetup = { nume: "Meetup", locuri: 35 };
+
+function statusEveniment(eveniment) {
+  if (eveniment.locuri === 0) {
+    return eveniment.nume + ": plin";
+  }
+  if ("sala" in eveniment) {
+    return eveniment.nume + ": " + eveniment.locuri + " locuri, sala " + eveniment.sala;
+  }
+  return eveniment.nume + ": " + eveniment.locuri + " locuri, sală necunoscută";
+}
+
+console.log(statusEveniment(hackathon));
+console.log(statusEveniment(workshop));
+console.log(statusEveniment(meetup));
 
 
 /* ===== TEMĂ DE ACASĂ · Raportul evenimentelor tale =====
@@ -270,3 +317,48 @@ console.log("--- Exercițiul 10 ---");
    GREȘEALĂ FRECVENTĂ: Scrii „Locuri libere” primul în if / else if: acel caz prinde orice
      eveniment, iar „Plin” și „Ultimele locuri” nu mai ajung niciodată să se verifice. Cazul
      cel mai strâns merge primul. */
+
+const evenimentulA = { nume: "Hackathon", locuri: 40, ocupate: 36, pret: 90, sala: "A2" };
+const evenimentulB = { nume: "Meetup", locuri: 30, ocupate: 10, pret: 20 };
+
+function raportEveniment(eveniment) {
+  const libere = eveniment.locuri - eveniment.ocupate;
+  const incasari = eveniment.ocupate * eveniment.pret;
+  let stare;
+  if (libere === 0) {
+    stare = "Plin";
+  } else if (libere < 5) {
+    stare = "Ultimele locuri";
+  } else {
+    stare = "Locuri libere";
+  }
+  let sala = "sală necunoscută";
+  if ("sala" in eveniment) {
+    sala = "sala " + eveniment.sala;
+  }
+  return eveniment.nume + " · " + stare + " (" + libere + " libere) · încasări " + incasari + " lei · " + sala;
+}
+
+console.log(raportEveniment(evenimentulA));
+console.log(raportEveniment(evenimentulB));
+
+function ceaMaiMultaIncasare(eveniment1, eveniment2) {
+  if (eveniment1.ocupate * eveniment1.pret >= eveniment2.ocupate * eveniment2.pret) {
+    return eveniment1.nume;
+  }
+  return eveniment2.nume;
+}
+
+console.log("Mai multe încasări: " + ceaMaiMultaIncasare(evenimentulA, evenimentulB));
+
+for (let bilete = 1; bilete <= 3; bilete++) {
+  let total = bilete * evenimentulA.pret;
+  if (bilete >= 3) {
+    total = total - total / 10;
+  }
+  console.log("Bilete: " + bilete + " → " + total + " lei");
+}
+
+for (const cheie in evenimentulB) {
+  console.log(cheie + ": " + evenimentulB[cheie]);
+}
