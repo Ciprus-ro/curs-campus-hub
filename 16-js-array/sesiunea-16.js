@@ -25,8 +25,8 @@
      rămâne. */
 
 console.log("--- Exercițiul 1 ---");
-// console.log(oras1);
-// var oras1 = "Cluj";
+let oras1 = "Cluj";
+console.log(oras1);
 
 
 /* ===== Exercițiul 2 · SINGUR · 2 min · Repară: ordinea declarației =====
@@ -46,11 +46,11 @@ console.log("--- Exercițiul 1 ---");
      nu 120. */
 
 console.log("--- Exercițiul 2 ---");
-// console.log("Total: " + totalBilete2);
-// let totalBilete2 = 0;
-// for (let i = 1; i <= 3; i++) {
-//   totalBilete2 = totalBilete2 + 40;
-// }
+let totalBilete2 = 0;
+for (let i = 1; i <= 3; i++) {
+  totalBilete2 = totalBilete2 + 40;
+}
+console.log("Total: " + totalBilete2);
 
 
 /* ===== Exercițiul 3 · GHIDAT · 4 min · Lista de așteptare: push și pop =====
@@ -72,6 +72,10 @@ console.log("--- Exercițiul 2 ---");
 
 console.log("--- Exercițiul 3 ---");
 const asteptare3 = ["Dan", "Eva"];
+asteptare3.push("Radu");
+console.log(asteptare3);
+console.log(asteptare3.pop());
+console.log(asteptare3);
 
 
 /* ===== Exercițiul 4 · SINGUR · 1 min · Coada la intrare: shift și unshift =====
@@ -91,6 +95,9 @@ const asteptare3 = ["Dan", "Eva"];
 
 console.log("--- Exercițiul 4 ---");
 const coada4 = ["Dan", "Eva"];
+console.log(coada4.shift());
+coada4.unshift("Radu");
+console.log(coada4);
 
 
 /* ===== Exercițiul 5 · GHIDAT · 4 min · includes: e deja înscris? =====
@@ -110,6 +117,8 @@ const coada4 = ["Dan", "Eva"];
 
 console.log("--- Exercițiul 5 ---");
 const participanti5 = ["Ana", "Ion", "Maria"];
+console.log(participanti5.includes("Ion"));
+console.log(participanti5.includes("Dan"));
 
 
 /* ===== Exercițiul 6 · SINGUR · 1 min · indexOf: unde e pe listă? =====
@@ -129,6 +138,8 @@ const participanti5 = ["Ana", "Ion", "Maria"];
 
 console.log("--- Exercițiul 6 ---");
 const participanti6 = ["Ana", "Ion", "Maria"];
+console.log(participanti6.indexOf("Maria"));
+console.log(participanti6.indexOf("Dan"));
 
 
 /* ===== Exercițiul 7 · GHIDAT · 8 min · Lista evenimentelor din Campus Hub =====
@@ -152,6 +163,16 @@ const participanti6 = ["Ana", "Ion", "Maria"];
      chiar la începutul celui de-al doilea. */
 
 console.log("--- Exercițiul 7 ---");
+const evenimente7 = [
+  { nume: "Hackathon", locuri: 20, pret: 90 },
+  { nume: "Workshop CSS", locuri: 0, pret: 40 },
+  { nume: "Meetup", locuri: 35, pret: 0 },
+];
+console.log(evenimente7[1].nume);
+console.log(evenimente7.length);
+for (let i = 0; i < evenimente7.length; i++) {
+  console.log(evenimente7[i].nume + ": " + evenimente7[i].locuri + " locuri");
+}
 
 
 /* ===== Exercițiul 8 · GHIDAT · 5 min · forEach: afișezi fiecare eveniment =====
@@ -179,13 +200,19 @@ const evenimente8 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+function afiseazaEveniment(eveniment) {
+  console.log(eveniment.nume + ": " + eveniment.locuri + " locuri");
+}
+evenimente8.forEach(afiseazaEveniment);
 
 
 /* ===== Exercițiul 9 · SINGUR · 1 min · forEach: rescrie cu funcția arrow =====
    CE FACI: Codul de pornire afișează evenimentele cu o funcție cu nume; tu îl rescrii cu o
      funcție arrow.
    PAȘI:
-   1. Șterge apelul evenimente9.forEach(afiseazaEveniment9);
+   1. Șterge apelul evenimente9.forEach((eveniment) => {
+  console.log(eveniment.nume + ": " + eveniment.locuri + " locuri");
+});
    2. Scrie același lucru cu o funcție arrow, direct în forEach:
       evenimente9.forEach((eveniment) => { ... });
    3. Rulează și compară cu Ținta: aceleași trei linii.
@@ -208,7 +235,9 @@ const evenimente9 = [
 function afiseazaEveniment9(eveniment) {
   console.log(eveniment.nume + ": " + eveniment.locuri + " locuri");
 }
-evenimente9.forEach(afiseazaEveniment9);
+evenimente9.forEach((eveniment) => {
+  console.log(eveniment.nume + ": " + eveniment.locuri + " locuri");
+});
 
 
 /* ===== Exercițiul 10 · GHIDAT · 4 min · filter: doar evenimentele cu locuri =====
@@ -234,6 +263,8 @@ const evenimente10 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const cuLocuri10 = evenimente10.filter((eveniment) => eveniment.locuri > 0);
+cuLocuri10.forEach((eveniment) => console.log(eveniment.nume));
 
 
 /* ===== Exercițiul 11 · SINGUR · 1 min · filter: doar evenimentele gratuite =====
@@ -257,6 +288,8 @@ const evenimente11 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const gratuite11 = evenimente11.filter((eveniment) => eveniment.pret === 0);
+gratuite11.forEach((eveniment) => console.log(eveniment.nume));
 
 
 /* ===== Exercițiul 12 · GHIDAT · 4 min · map: lista numelor =====
@@ -279,6 +312,8 @@ const evenimente12 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const nume12 = evenimente12.map((eveniment) => eveniment.nume);
+console.log(nume12);
 
 
 /* ===== Exercițiul 13 · SINGUR · 1 min · map: lista prețurilor =====
@@ -302,6 +337,8 @@ const evenimente13 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const preturi13 = evenimente13.map((eveniment) => eveniment.pret);
+console.log(preturi13);
 
 
 /* ===== Exercițiul 14 · GHIDAT · 4 min · find: primul eveniment gratuit =====
@@ -327,6 +364,9 @@ const evenimente14 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const gratuit14 = evenimente14.find((eveniment) => eveniment.pret === 0);
+console.log(gratuit14.nume);
+console.log(gratuit14.locuri);
 
 
 /* ===== Exercițiul 15 · SINGUR · 1 min · find: primul eveniment fără locuri =====
@@ -352,6 +392,9 @@ const evenimente15 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const plin15 = evenimente15.find((eveniment) => eveniment.locuri === 0);
+console.log(plin15.nume);
+console.log(plin15.pret);
 
 
 /* ===== Exercițiul 16 · SINGUR · 5 min · Recapitulare: filter, map, find și indexOf =====
@@ -381,6 +424,13 @@ const evenimente16 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+const cuLocuri16 = evenimente16.filter((eveniment) => eveniment.locuri > 0);
+const nume16 = cuLocuri16.map((eveniment) => eveniment.nume);
+const primulGratuit16 = evenimente16.find((eveniment) => eveniment.pret === 0);
+const poz16 = nume16.indexOf("Meetup");
+console.log(nume16);
+console.log(primulGratuit16.nume);
+console.log(poz16);
 
 
 /* ===== TEMĂ DE ACASĂ · Evenimentele tale: raport complet =====
