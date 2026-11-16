@@ -468,9 +468,39 @@ console.log(poz16);
    GREȘEALĂ FRECVENTĂ: Ordinea ramurilor: dacă pui întâi libere <= 5, evenimentul plin (0
      libere) ajunge la „Ultimele locuri”; verifică mai întâi libere === 0. */
 
-// const evenimenteleMele = [
-//   { nume: "Hackathon", locuri: 20, ocupate: 8, pret: 90 },
-//   { nume: "Workshop CSS", locuri: 30, ocupate: 12, pret: 40 },
-//   { nume: "Meetup", locuri: 35, ocupate: 34, pret: 0 },
-//   { nume: "Concert", locuri: 50, ocupate: 50, pret: 70 },
-// ];
+const evenimenteleMele = [
+  { nume: "Hackathon", locuri: 20, ocupate: 8, pret: 90 },
+  { nume: "Workshop CSS", locuri: 30, ocupate: 12, pret: 40 },
+  { nume: "Meetup", locuri: 35, ocupate: 34, pret: 0 },
+  { nume: "Concert", locuri: 50, ocupate: 50, pret: 70 },
+];
+
+evenimenteleMele.push({ nume: "Curs JS", locuri: 25, ocupate: 10, pret: 60 });
+evenimenteleMele.shift();
+
+evenimenteleMele.forEach((eveniment) => {
+  const libere = eveniment.locuri - eveniment.ocupate;
+  const incasari = eveniment.ocupate * eveniment.pret;
+  let stare;
+  if (libere === 0) {
+    stare = "Plin";
+  } else if (libere <= 5) {
+    stare = "Ultimele locuri";
+  } else {
+    stare = "Locuri libere";
+  }
+  console.log(eveniment.nume + ": " + libere + " libere · " + incasari + " lei · " + stare);
+});
+
+const cuLocuri = evenimenteleMele.filter((eveniment) => eveniment.locuri - eveniment.ocupate > 0);
+const numeCuLocuri = cuLocuri.map((eveniment) => eveniment.nume);
+console.log(numeCuLocuri);
+
+const primulGratuit = evenimenteleMele.find((eveniment) => eveniment.pret === 0);
+console.log("Primul gratuit: " + primulGratuit.nume);
+console.log(numeCuLocuri.includes("Meetup"));
+console.log(numeCuLocuri.indexOf("Meetup"));
+
+// De studiat: Object.keys și Object.values pe un obiect de-al tău.
+console.log(Object.keys(primulGratuit));
+console.log(Object.values(primulGratuit));
