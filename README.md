@@ -14,8 +14,12 @@ curs-campus-hub/
 │   └── sesiunea-14.js          exercițiile sesiunii 14, de copiat în proiectul tău
 ├── 15-js-obiecte/
 │   └── sesiunea-15.js          exercițiile sesiunii 15, de copiat în proiectul tău
-└── 16-js-array/
-    └── sesiunea-16.js          exercițiile sesiunii 16, de copiat în proiectul tău
+├── 16-js-array/
+│   └── sesiunea-16.js          exercițiile sesiunii 16, de copiat în proiectul tău
+└── 17-js-dom-manipulare/
+    ├── evenimente/             pagina Evenimente (HTML și CSS), de copiat în proiectul tău
+    └── js/
+        └── sesiunea-17.js      exercițiile sesiunii 17, de copiat în campus-hub/js
 ```
 
 Fiecare sesiune are un folder, cu fișierele ei direct în el. Copiezi fișierele în **proiectul tău** (`campus-hub`), de exemplu `sesiunea-13.js` în `campus-hub/js/`.
@@ -51,6 +55,15 @@ Fiecare sesiune are un folder, cu fișierele ei direct în el. Copiezi fișierel
 3. Copiază `16-js-array/sesiunea-16.js` în `campus-hub/js/`.
 4. Deschide fișierul în VS Code, rezolvă exercițiile și rulează cu **Ctrl+Alt+N**.
 5. `git add .`, `git commit -m "Sesiunea 16: array"`, `git push origin sesiunea-16`, apoi Pull Request în `main`.
+
+## Sesiunea 17 pe scurt
+
+1. În `curs-campus-hub`: `git pull`.
+2. În `campus-hub`: `git checkout main`, `git pull`, `git checkout -b sesiunea-17`.
+3. Copiază folderul `17-js-dom-manipulare/evenimente` în `campus-hub/` și fișierul `17-js-dom-manipulare/js/sesiunea-17.js` în `campus-hub/js/`.
+4. În `campus-hub/index.html`, la linkul „Evenimente” din meniu, pune `href="evenimente/evenimente.html"`.
+5. Deschide `evenimente/evenimente.html` cu **Live Server**, rezolvă exercițiile în `js/sesiunea-17.js`; rezultatul se vede în pagină și în Console (F12).
+6. `git add .`, `git commit -m "Sesiunea 17: manipularea DOM"`, `git push origin sesiunea-17`, apoi Pull Request în `main`.
 
 ## Tag-uri: „pozele” repo-ului
 
