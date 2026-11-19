@@ -434,3 +434,25 @@ descriere16.textContent = "Am găsit greșeala!";
      lucru ca la textContent
    GREȘEALĂ FRECVENTĂ: Golești lista, dar parcurgi evenimenteleMele în loc de cuLocuri:
      Concertul plin apare din nou. forEach-ul trebuie făcut pe lista filtrată. */
+
+console.log("--- Tema de acasă ---");
+const cuLocuri = evenimenteleMele.filter((eveniment) => eveniment.locuri > eveniment.ocupate);
+const listaTema = document.querySelector("#lista-evenimente");
+listaTema.innerHTML = "";
+cuLocuri.forEach((eveniment) => {
+  const card = creeazaCard(eveniment);
+  if (eveniment.pret === 0) {
+    card.classList.add("recomandat");
+  }
+  listaTema.appendChild(card);
+});
+document.querySelector("#contor").textContent = cuLocuri.length;
+document.querySelector("#descriere").textContent = cuLocuri.length + " evenimente cu locuri libere";
+
+const titluTema = listaTema.querySelector("h3");
+console.log(titluTema.parentElement);
+console.log(listaTema.children.length);
+
+const primulCard = listaTema.children[0];
+primulCard.setAttribute("title", "Cel mai așteptat eveniment");
+console.log(primulCard.getAttribute("title"));
