@@ -29,6 +29,8 @@
      pagina n-are încă niciun element, iar selecțiile de mai târziu dau null. */
 
 console.log("--- Exercițiul 1 ---");
+console.log("Salut din Campus Hub");
+console.log(document.title);
 
 
 /* ===== Exercițiul 2 · GHIDAT · 4 min · Selectăm titlul =====
@@ -47,6 +49,10 @@ console.log("--- Exercițiul 1 ---");
      numele id-ului, iar răspunsul e null. */
 
 console.log("--- Exercițiul 2 ---");
+const titluId2 = document.getElementById("titlu");
+const titluSel2 = document.querySelector("#titlu");
+console.log(titluId2);
+console.log(titluSel2);
 
 
 /* ===== Exercițiul 3 · SINGUR · 1 min · Toate cardurile =====
@@ -65,6 +71,9 @@ console.log("--- Exercițiul 2 ---");
      singur card, iar .length dă undefined. */
 
 console.log("--- Exercițiul 3 ---");
+const carduri3 = document.querySelectorAll(".card");
+console.log(carduri3.length);
+console.log(carduri3[0]);
 
 
 /* ===== Exercițiul 4 · GHIDAT · 4 min · Schimbăm titlul =====
@@ -83,6 +92,9 @@ console.log("--- Exercițiul 3 ---");
      funcție, i se dă o valoare cu =. */
 
 console.log("--- Exercițiul 4 ---");
+const titlu4 = document.querySelector("#titlu");
+console.log(titlu4.textContent);
+titlu4.textContent = "Evenimentele Campus Hub";
 
 
 /* ===== Exercițiul 5 · SINGUR · 2 min · Descrierea și contorul =====
@@ -103,6 +115,11 @@ console.log("--- Exercițiul 4 ---");
      evenimentul... dă eroare; textul se scrie între ghilimele. */
 
 console.log("--- Exercițiul 5 ---");
+const descriere5 = document.querySelector("#descriere");
+const contor5 = document.querySelector("#contor");
+console.log(contor5.textContent);
+descriere5.textContent = "Alege evenimentul tău și rezervă un loc.";
+contor5.textContent = 4;
 
 
 /* ===== Exercițiul 6 · GHIDAT · 3 min · Tag-uri scrise ca text =====
@@ -119,6 +136,8 @@ console.log("--- Exercițiul 5 ---");
      tag-uri, le afișează exact cum sunt scrise. */
 
 console.log("--- Exercițiul 6 ---");
+const descriere6 = document.querySelector("#descriere");
+descriere6.textContent = "<b>Ultimele locuri!</b>";
 
 
 /* ===== Exercițiul 7 · SINGUR · 2 min · Text sau HTML =====
@@ -138,6 +157,9 @@ console.log("--- Exercițiul 6 ---");
      Exercițiul 6. Pentru HTML ai nevoie de innerHTML. */
 
 console.log("--- Exercițiul 7 ---");
+const descriere7 = document.querySelector("#descriere");
+descriere7.innerHTML = "<b>Ultimele locuri!</b>";
+console.log(descriere7.textContent);
 
 
 /* ===== Exercițiul 8 · GHIDAT · 4 min · Stil direct și clase =====
@@ -155,6 +177,9 @@ console.log("--- Exercițiul 7 ---");
      backgroundColor, cu literă mare în loc de liniuță. */
 
 console.log("--- Exercițiul 8 ---");
+const card8 = document.querySelector(".card");
+card8.style.backgroundColor = "lightyellow";
+card8.classList.add("recomandat");
 
 
 /* ===== Exercițiul 9 · SINGUR · 2 min · Cardul epuizat =====
@@ -174,6 +199,9 @@ console.log("--- Exercițiul 8 ---");
      un element, deci alegi întâi cardul, cu un index. */
 
 console.log("--- Exercițiul 9 ---");
+const carduri9 = document.querySelectorAll(".card");
+carduri9[1].classList.add("epuizat");
+carduri9[2].classList.toggle("recomandat");
 
 
 /* ===== Exercițiul 10 · GHIDAT · 5 min · Creăm un card nou =====
@@ -193,6 +221,13 @@ console.log("--- Exercițiul 9 ---");
      elementul; apare abia după appendChild. */
 
 console.log("--- Exercițiul 10 ---");
+const card10 = document.createElement("div");
+card10.classList.add("card");
+const titlu10 = document.createElement("h3");
+titlu10.textContent = "Concert";
+card10.appendChild(titlu10);
+const lista10 = document.querySelector("#lista-evenimente");
+lista10.appendChild(card10);
 
 
 /* ===== Exercițiul 11 · SINGUR · 3 min · Paragraf și ștergere =====
@@ -211,6 +246,11 @@ console.log("--- Exercițiul 10 ---");
      paragraful în card. Cel care primește e cel care conține. */
 
 console.log("--- Exercițiul 11 ---");
+const info11 = document.createElement("p");
+info11.textContent = "50 locuri · 70 lei";
+card10.appendChild(info11);
+const carduri11 = document.querySelectorAll(".card");
+carduri11[1].remove();
 
 
 /* ===== Exercițiul 12 · GHIDAT · 6 min · Funcția creeazaCard =====
@@ -236,6 +276,19 @@ const evenimente12 = [
   { nume: "Workshop CSS", locuri: 0, pret: 40 },
   { nume: "Meetup", locuri: 35, pret: 0 },
 ];
+function creeazaCard(eveniment) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  const titlu = document.createElement("h3");
+  titlu.textContent = eveniment.nume;
+  const info = document.createElement("p");
+  info.textContent = eveniment.locuri + " locuri · " + eveniment.pret + " lei";
+  card.appendChild(titlu);
+  card.appendChild(info);
+  return card;
+}
+const lista12 = document.querySelector("#lista-evenimente");
+lista12.appendChild(creeazaCard(evenimente12[0]));
 
 
 /* ===== Exercițiul 13 · SINGUR · 1 min · Randăm lista din array =====
@@ -255,6 +308,11 @@ const evenimente12 = [
      după ele. */
 
 console.log("--- Exercițiul 13 ---");
+const lista13 = document.querySelector("#lista-evenimente");
+lista13.innerHTML = "";
+evenimente12.forEach((eveniment) => {
+  lista13.appendChild(creeazaCard(eveniment));
+});
 
 
 /* ===== Exercițiul 14 · SINGUR · 3 min · Evenimentele tale pe pagină =====
@@ -283,6 +341,16 @@ const evenimenteleMele = [
   { nume: "Meetup", locuri: 35, ocupate: 34, pret: 0 },
   { nume: "Concert", locuri: 50, ocupate: 50, pret: 70 },
 ];
+const lista14 = document.querySelector("#lista-evenimente");
+lista14.innerHTML = "";
+evenimenteleMele.forEach((eveniment) => {
+  const card = creeazaCard(eveniment);
+  if (eveniment.ocupate === eveniment.locuri) {
+    card.classList.add("epuizat");
+  }
+  lista14.appendChild(card);
+});
+document.querySelector("#contor").textContent = evenimenteleMele.length;
 
 
 /* ===== Exercițiul 15 · GHIDAT · 3 min · Detectivul: eroare în Console =====
@@ -306,8 +374,8 @@ const evenimenteleMele = [
      eroarea și cere o explicație, nu o rescriere. */
 
 console.log("--- Exercițiul 15 ---");
-// const titlu15 = document.querySelector("#titulu");
-// titlu15.textContent = "Evenimentele tale";
+const titlu15 = document.querySelector("#titlu");
+titlu15.textContent = "Evenimentele tale";
 
 
 /* ===== Exercițiul 16 · SINGUR · 2 min · Detectivul: nicio eroare, dar nu merge =====
@@ -329,8 +397,8 @@ console.log("--- Exercițiul 15 ---");
      cod și te uiți în pagină. Dacă nu merge, o respingi. */
 
 console.log("--- Exercițiul 16 ---");
-// const descriere16 = document.querySelector("#descriere");
-// descriere16.textcontent = "Am găsit greșeala!";
+const descriere16 = document.querySelector("#descriere");
+descriere16.textContent = "Am găsit greșeala!";
 
 
 /* ===== TEMĂ DE ACASĂ · Lista filtrată și contorul =====
